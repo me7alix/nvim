@@ -31,4 +31,7 @@ lspconfig.zls.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   cmd = { "zls" },
+  init_options = {
+    enable_argument_placeholders = false,
+  },
 }

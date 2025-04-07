@@ -35,3 +35,9 @@ lspconfig.zls.setup {
     enable_argument_placeholders = false,
   },
 }
+
+lspconfig.ols.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  cmd = { "ols" },
+}

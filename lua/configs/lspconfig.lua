@@ -26,3 +26,9 @@ lspconfig.clangd.setup({
   cmd = { "clangd", "--function-arg-placeholders=0" },
   capabilities = nvlsp.capabilities,
 })
+
+lspconfig.zls.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  cmd = { "zls" },
+}

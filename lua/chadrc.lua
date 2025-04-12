@@ -13,16 +13,16 @@ M.base46 = {
 	-- },
 }
 
- M.ui = {
-   statusline = {
-     theme = "minimal",
-     separator_style = "block",
-     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-     modules = {
-       f = "%F"
-     }
-   },
- }
+M.ui = {
+  statusline = {
+    theme = "minimal",
+    separator_style = "block",
+    order = {"mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+    modules = {
+      f = "%F",
+    }
+  },
+}
 
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {

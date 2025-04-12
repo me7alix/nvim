@@ -17,13 +17,8 @@ M.base46 = {
    statusline = {
      theme = "minimal",
      separator_style = "block",
-     order = { "mode", "f", "git", "%=", "lsp_msg", "%=", "lsp"},
+     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
      modules = {
-       abc = function()
-         return "hi"
-       end,
-
-       xyz =  "hi",
        f = "%F"
      }
    },

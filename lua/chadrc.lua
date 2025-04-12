@@ -6,12 +6,28 @@
 local M = {}
 
 M.base46 = {
-  theme = "gruvbox",
+   theme = "gruvblack",
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
 	-- },
 }
+
+ M.ui = {
+   statusline = {
+     theme = "minimal",
+     separator_style = "block",
+     order = { "mode", "f", "git", "%=", "lsp_msg", "%=", "lsp"},
+     modules = {
+       abc = function()
+         return "hi"
+       end,
+
+       xyz =  "hi",
+       f = "%F"
+     }
+   },
+ }
 
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {

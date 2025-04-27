@@ -50,4 +50,11 @@ vim.filetype.add({
 vim.keymap.set("n", "d", '"_d')
 vim.keymap.set("v", "d", '"_d')
 
-
+-- retab
+vim.keymap.set("n", "<leader>a", function()
+  vim.opt.expandtab = true
+  vim.opt.tabstop = 2
+  vim.opt.shiftwidth = 2
+  vim.cmd("retab!")
+  vim.cmd("normal gg=G")
+end, { desc = "Fix tabs and re-indent file" })

@@ -50,11 +50,20 @@ vim.filetype.add({
 vim.keymap.set("n", "d", '"_d')
 vim.keymap.set("v", "d", '"_d')
 
+-- Use actual TAB characters
+vim.opt.expandtab     = false
+vim.opt.tabstop       = 4
+vim.opt.shiftwidth    = 4
+vim.opt.softtabstop   = 4
+vim.opt.smarttab      = true
+
 -- retab
 vim.keymap.set("n", "<leader>a", function()
-  vim.opt.expandtab = true
-  vim.opt.tabstop = 2
-  vim.opt.shiftwidth = 2
+  -- 1) save cursor
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  -- 2) retab and re-indent
   vim.cmd("retab!")
-  vim.cmd("normal gg=G")
-end, { desc = "Fix tabs and re-indent file" })
+  vim.cmd("normal! gg=G")
+  -- 3) restore cursor
+  vim.api.nvim_win_set_cursor(0, {row, col})
+end, { desc = "Fix tabs and re-indent file (without moving cursor)" })

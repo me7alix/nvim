@@ -6,29 +6,18 @@
 local M = {}
 
 M.base46 = {
-   theme = "gruvblack",
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+	theme = "gruvblack",
 }
 
 M.ui = {
-  statusline = {
-    theme = "minimal",
-    separator_style = "block",
-    order = {"mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-    modules = {
-      f = "%F",
-    }
-  },
+	statusline = {
+		theme = "default",
+		separator_style = "block",
+		order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+		modules = {
+			f = "%F",
+		}
+	},
 }
-
--- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
---}
 
 return M

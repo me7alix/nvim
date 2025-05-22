@@ -9,35 +9,35 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
+	lspconfig[lsp].setup {
+		on_attach = nvlsp.on_attach,
+		on_init = nvlsp.on_init,
+		capabilities = nvlsp.capabilities,
+	}
 end
 
 lspconfig.gopls.setup({
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
+	on_attach = nvlsp.on_attach,
+	capabilities = nvlsp.capabilities,
 })
 
 lspconfig.clangd.setup({
-  on_attach = nvlsp.on_attach,
-  cmd = { "clangd", "--function-arg-placeholders=0" },
-  capabilities = nvlsp.capabilities,
+	on_attach = nvlsp.on_attach,
+	cmd = { "clangd", "--function-arg-placeholders=0" },
+	capabilities = nvlsp.capabilities,
 })
 
 lspconfig.zls.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  cmd = { "zls" },
-  init_options = {
-    enable_argument_placeholders = false,
-  },
+	on_attach = nvlsp.on_attach,
+	capabilities = nvlsp.capabilities,
+	cmd = { "zls" },
+	init_options = {
+		enable_argument_placeholders = false,
+	},
 }
 
 lspconfig.ols.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  cmd = { "ols" },
+	on_attach = nvlsp.on_attach,
+	capabilities = nvlsp.capabilities,
+	cmd = { "ols" },
 }

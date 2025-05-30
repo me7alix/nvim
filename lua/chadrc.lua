@@ -11,7 +11,7 @@ M.base46 = {
 
 M.ui = {
 	statusline = {
-		theme = "default",
+		theme = "vscode_colored",
 		separator_style = "block",
 		order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
 		modules = {

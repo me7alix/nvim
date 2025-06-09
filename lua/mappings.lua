@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+map('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 map({ "v", "x" }, "p", [["_dP]], { silent = true })
 map({ "v", "x" }, "P", [["_dp]], { silent = true })
 map("n", "d", '"_d')

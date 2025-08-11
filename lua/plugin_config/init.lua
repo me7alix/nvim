@@ -1,0 +1,7 @@
+require('plugin_config.themes.blackmetal')
+require('plugin_config.lualine')
+require('plugin_config.nvim-tree')
+require('plugin_config.treesitter')
+require('plugin_config.barbar')
+require('plugin_config.lsp.lspconfig')
+require('plugin_config.lsp.lspsuggestions')

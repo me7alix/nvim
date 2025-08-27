@@ -61,7 +61,7 @@ vim.b[buf].grep_root = root
 vim.b[buf].grep_pattern = pattern
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_buf_set_keymap(buf, 'n', '<CR>', '<Cmd>lua require(\"todo\").open_result()<CR>', opts)
+vim.api.nvim_buf_set_keymap(buf, 'n', '<CR>', '<Cmd>lua require(\"grep\").open_result()<CR>', opts)
 vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<Cmd>bd!<CR>', opts)
 end
 

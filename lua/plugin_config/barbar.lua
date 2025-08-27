@@ -4,6 +4,9 @@ local opts = { noremap = true, silent = true }
 map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
 
+map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
+
 map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
 map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
 
@@ -24,11 +27,11 @@ map('n', '<leader>x', '<Cmd>BufferClose<CR>', opts)
 map('n', '<C-p>',	'<Cmd>BufferPick<CR>', opts)
 map('n', '<C-s-p>', '<Cmd>BufferPickDelete<CR>', opts)
 
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
-map('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', opts)
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+map('n', '<leader>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+map('n', '<leader>bn', '<Cmd>BufferOrderByName<CR>', opts)
+map('n', '<leader>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
+map('n', '<leader>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
+map('n', '<leader>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 vim.g.barbar_auto_setup = false
 

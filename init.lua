@@ -1,5 +1,5 @@
 require('plugins')
 require('options')
 require('keymaps')
-require('todo')
+require('grep')
 require('plugin_config')

@@ -13,7 +13,7 @@ local colors = {
 	yellow   = '#ECBE7B',
 	cyan	   = '#008080',
 	darkblue = '#081633',
-	green    = '#597f7f',
+	green    = '#00ff00',
 	orange   = '#ff8800',
 	violet   = '#a9a1e1',
 	magenta  = '#ff00ff',
@@ -184,14 +184,14 @@ ins_right {
 	'o:encoding', -- option component same as &encoding in viml
 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
 	cond = conditions.hide_in_width,
-	color = { fg = colors.green, gui = 'bold' },
+	color = { fg = '#597f7f', gui = 'bold' },
 }
 
 ins_right {
 	'fileformat',
 	fmt = string.upper,
 	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-	color = { fg = colors.green, gui = 'bold' },
+	color = { fg = '#597f7f', gui = 'bold' },
 }
 
 ins_right {

@@ -1,5 +1,6 @@
 require('plugins')
 require('options')
 require('keymaps')
+require('terminal')
 require('grep')
 require('plugin_config')

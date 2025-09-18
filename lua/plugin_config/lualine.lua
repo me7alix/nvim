@@ -8,17 +8,17 @@ local lualine = require('lualine')
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-	bg	   = '#000000',
-	fg	   = '#bbc2cf',
+	bg       = '#000000',
+	fg       = '#bbc2cf',
 	yellow   = '#ECBE7B',
-	cyan	   = '#008080',
+	cyan     = '#008080',
 	darkblue = '#081633',
 	green    = '#00ff00',
 	orange   = '#ff8800',
 	violet   = '#a9a1e1',
 	magenta  = '#ff00ff',
-	blue	   = '#00ff00',
-	red	   = '#ff0000',
+	blue     = '#00ff00',
+	red      = '#ff0000',
 }
 
 local conditions = {
@@ -92,7 +92,7 @@ ins_left {
 ins_left {
 	-- mode component
 	function()
-		return '  '
+		return ' '
 	end,
 	color = function()
 		-- auto change color according to neovims mode
@@ -172,13 +172,6 @@ ins_right {
 	'o:encoding', -- option component same as &encoding in viml
 	fmt = string.upper, -- I'm not sure why it's upper case either ;)
 	cond = conditions.hide_in_width,
-	color = { fg = '#597f7f', gui = 'bold' },
-}
-
-ins_right {
-	'fileformat',
-	fmt = string.upper,
-	icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
 	color = { fg = '#597f7f', gui = 'bold' },
 }
 

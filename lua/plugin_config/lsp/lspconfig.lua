@@ -1,49 +1,59 @@
 require("mason").setup()
-require("mason-lspconfig").setup {
-	ensure_installed = { "html", "cssls", "gopls" },
-	automatic_installation = true,
+require("mason-lspconfig").setup({
+	ensure_installed = { "html", "cssls", "gopls", "clangd", "zls", "ols" },
+})
+
+-- Enhanced client capabilities (same as your original)
+local caps = vim.lsp.protocol.make_client_capabilities()
+
+-- Global keymappings via LspAttach (applies to ANY LSP server that attaches)
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local bufnr = ev.buf
+		local bufmap = function(mode, lhs, rhs)
+			vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true })
+		end
+
+		bufmap("n", "gd", vim.lsp.buf.definition)
+		bufmap("n", "K", vim.lsp.buf.hover)
+		bufmap("n", "<leader>r", vim.lsp.buf.rename)
+	end,
+})
+
+-- Custom server configs (full control, including your overrides + filetypes + root_dir + capabilities)
+local custom_servers = {
+	clangd = {
+		cmd = { "clangd", "--function-arg-placeholders=0" },
+		filetypes = { "c", "cpp", "objc", "objcpp" },
+		root_dir = vim.fs.dirname(vim.fs.find({ "compile_commands.json", "compile_flags.txt", ".git" }, { upward = true })[1]),
+		capabilities = caps,
+	},
+	zls = {
+		cmd = { "zls" },
+		filetypes = { "zig" },
+		root_dir = vim.fs.dirname(vim.fs.find({ "build.zig", "zig.mod", ".git" }, { upward = true })[1]),
+		init_options = {
+			enable_argument_placeholders = false,
+		},
+		capabilities = caps,
+	},
+	ols = {  -- Assuming OLS = Odin Language Server; adjust filetypes if wrong
+		cmd = { "ols" },
+		filetypes = { "odin" },
+		root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
+		capabilities = caps,
+	},
 }
 
--- 3) Common on_attach & capabilities
-local on_attach = function(client, bufnr)
-	-- example keymaps; customize as you like:
-	local bufmap = function(mode, lhs, rhs)
-		vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, { noremap=true, silent=true })
-	end
-
-	bufmap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-	bufmap("n", "K",		"<cmd>lua vim.lsp.buf.hover()<CR>")
-	bufmap("n", "<Leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>")
+-- Register + enable custom servers
+for name, config in pairs(custom_servers) do
+	vim.lsp.config(name, config)
+	vim.lsp.enable(name)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local lspconfig = require("lspconfig")
-
-local function setup_server(name, opts)
-    opts = vim.tbl_deep_extend("force", {
-        on_attach = on_attach,
-        capabilities = capabilities,
-    }, opts or {})
-    lspconfig[name].setup(opts)
+-- Built-in servers (Neovim 0.11+ provides defaults for cmd, filetypes, root_dir, etc.)
+-- html, cssls, gopls have built-ins → just enable them (mason ensures binaries in $PATH)
+local builtin_servers = { "html", "cssls", "gopls" }
+for _, name in ipairs(builtin_servers) do
+	vim.lsp.enable(name)
 end
-
--- 5) Configure each server
-
--- clangd with a custom flag
-setup_server("clangd", {
-	cmd = { "clangd", "--function-arg-placeholders=0" },
-})
-
--- Zig
-setup_server("zls", {
-	cmd = { "zls" },
-	init_options = {
-		enable_argument_placeholders = false,
-	},
-})
-
--- OLS
-setup_server("ols", {
-	cmd = { "ols" },
-})

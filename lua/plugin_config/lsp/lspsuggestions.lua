@@ -1,4 +1,3 @@
-local lspconfig = require('lspconfig')
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 local lspkind = require('lspkind')
@@ -51,12 +50,6 @@ cmp.setup({
 -- Setup capabilities for LSP servers to use nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- Example: configure pyright
-lspconfig.pyright.setup({ capabilities = capabilities })
--- Add other servers similarly:
--- lspconfig.tsserver.setup({ capabilities = capabilities })
--- lspconfig.gopls.setup({ capabilities = capabilities })
 
 -- Optional: diagnostic keymaps
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })

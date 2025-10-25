@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
 	use 'olimorris/onedarkpro.nvim'
 	use 'metalelf0/black-metal-theme-neovim'
 	use 'lukas-reineke/indent-blankline.nvim'
+	use 'hedyhli/outline.nvim'
 
 	if packer_bootstrap then
 		require('packer').sync()

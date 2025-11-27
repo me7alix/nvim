@@ -14,6 +14,25 @@ vim.opt.shiftwidth  = 4
 vim.opt.softtabstop = 4
 vim.opt.smarttab    = true
 
+vim.opt.cinoptions:append(':0')
+vim.opt.cinoptions:append('=0')
+
+vim.api.nvim_create_user_command("ToggleTab", function()
+	if vim.o.expandtab then
+		vim.o.expandtab = false
+		vim.o.softtabstop = 0
+		vim.o.shiftwidth = 4
+		vim.o.tabstop = 4
+		vim.notify("Switched to Tabs mode", vim.log.levels.INFO)
+	else
+		vim.o.expandtab = true
+		vim.o.softtabstop = 4
+		vim.o.shiftwidth = 4
+		vim.o.tabstop = 4
+		vim.notify("Switched to Spaces mode", vim.log.levels.INFO)
+	end
+end, {})
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 

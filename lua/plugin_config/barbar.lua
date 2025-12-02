@@ -24,7 +24,7 @@ map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
 map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
 map('n', '<leader>x', '<Cmd>BufferClose<CR>', opts)
 
-map('n', '<C-p>',	'<Cmd>BufferPick<CR>', opts)
+map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 map('n', '<C-s-p>', '<Cmd>BufferPickDelete<CR>', opts)
 
 map('n', '<leader>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
@@ -40,7 +40,7 @@ require('barbar').setup {
 
 	icons = {
 		separator = {left = '', right = ''},
-		inactive = {separator = {left = '', right = ''}, button = '×'},
+		inactive = {separator = {left = '', right = ''}, button = ''},
 	},
 
 	sidebar_filetypes = {

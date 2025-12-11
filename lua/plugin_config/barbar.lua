@@ -38,9 +38,20 @@ vim.g.barbar_auto_setup = false
 require('barbar').setup {
 	focus_on_close = 'left',
 
+	minimum_padding = 3,
+	maximum_padding = 3,
+	maximum_length = 20,
+	minimum_length = 0,
+
+	gaps = { non = 0, inner = 0 },
+	padding = { left = 0, right = 0 },
+
 	icons = {
-		separator = {left = '', right = ''},
-		inactive = {separator = {left = '', right = ''}, button = ''},
+		button = false,
+		separator = { left = '', right = '' },
+		inactive = { separator = { left = '', right = '' } },
+		separator_at_end = false,
+		modified = { button = '●' },
 	},
 
 	sidebar_filetypes = {
@@ -53,3 +64,9 @@ require('barbar').setup {
 		Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
 	},
 }
+
+vim.cmd [[
+	highlight TabLine guibg=NONE ctermbg=NONE
+	highlight TabLineSel guibg=NONE ctermbg=NONE
+	highlight TabLineFill guibg=NONE ctermbg=NONE
+]]

@@ -12,7 +12,7 @@ opt.fillchars:append { eob = " " }
 
 -- Timings
 vim.o.timeout     = true
-vim.o.timeoutlen  = 200
+vim.o.timeoutlen  = 300
 vim.o.ttimeout    = true
 vim.o.ttimeoutlen = 10
 
